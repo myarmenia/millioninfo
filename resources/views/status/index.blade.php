@@ -28,8 +28,6 @@
 
     <input type="submit" name="sent" value="Ավելացնել">
 </form>
-
-
 <table class="table table-bordered">
  <tr>
    <th>No</th>
