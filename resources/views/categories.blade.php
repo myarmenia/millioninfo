@@ -19,17 +19,32 @@
                 </div> -->
                
                 <table class="table">
-                  <thead>
-                    <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">Names</th>
-                      <th scope="col">Addresses</th>
-                      <th scope="col">Images</th>
-                      <th scope="col">types_of_activities</th>
-                      <th scope="col">Catigory</th>
-                      <th scope="col"><a class="btn btn-primary"href="{{ route('categories.editcategories') }}">Edit</a></th>
+                    <thead>
+                     <tr> 
+                      
+                         <th scope="col">Names</th>
+                         <th scope="col">Edit</th>
                      </tr>
-              </thead>
+                    </thead>
+
+                        <table class="table">
+                        @foreach($user as $info)
+                          <thead>
+                            
+                            <th>{{$info->name}}</th>
+                            <th scope="col"><a class="btn btn-primary"href="{{ route('edit,$user->id') }}">Edit</a></th>
+                            
+                          </thead>
+                          @endforeach
+                        </table>
+
+
+                        <!-- @foreach($user as $info)
+
+                            <td>{{$info->name}}</td>
+                        @endforeach -->
+                     
+              
               <tbody>
          
                   <script>
