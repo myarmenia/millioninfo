@@ -17,9 +17,17 @@
     <input  id="hy" type="text" name="hy" required>
     <label for="ru">RU</label>
     <input id="ru" type="text" name="ru" required>
+
+    <label for="cars">Choose Categories</label>
+    <select name="categories_id" id="cars">
+        @foreach ($data as $info )
+            <option value="1">{{$info->name}}</option>
+        @endforeach
+    4</option>
+    </select>
+
     <input type="submit" name="sent" value="Ավելացնել">
 </form>
-
 
 
 <table class="table table-bordered">
