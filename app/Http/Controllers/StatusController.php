@@ -18,9 +18,9 @@ class StatusController extends Controller
     public function index()
     {  
         
-        // $status = Categorie::orderBy('id','desc')->paginate(32);
+        $data = Categories::all();
 
-        return view('status.index');
+        return view('status.index',compact('data'));
     }
 
 

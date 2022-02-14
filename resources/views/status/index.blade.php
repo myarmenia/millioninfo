@@ -20,10 +20,10 @@
 
     <label for="cars">Choose Categories</label>
     <select name="categories_id" id="cars">
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
+        @foreach ($data as $info )
+            <option value="1">{{$info->name}}</option>
+        @endforeach
+    4</option>
     </select>
 
     <input type="submit" name="sent" value="Ավելացնել">
