@@ -26,26 +26,23 @@
  <tr>
    <th>No</th>
    <th>Name</th>
-   <th >Translet json</th>
+   <th>Action</th>
+   {{-- <th >Translet json</th>
    <th >Filter</th>
-   <th >Action</th>
+   <th >Action</th> --}}
  </tr>
  @foreach ($status as $data)
   <tr>
     <td>{{ $data->id }}</td>
     <td>{{ $data->name }}</td>
     <td>
-    <?php
-    $k=json_decode($data->catigory);
-    echo "en:".$k->en."    ";
-    echo "hy:".$k->hy."    "; 
-    echo "ru:".$k->ru."    ";
-    ?>
+        <a href={{"show/".$data['id']}}>Edit</a>
     </td>
-     <td><input type="text" onchange="sentvalue(this.value,{{$data->id}})" value="{{$data->filter}}" name=""></td>
+    </td>
+     {{-- <td><input type="text" onchange="sentvalue(this.value,{{$data->id}})" value="{{$data->filter}}" name=""></td> --}}
     <td>
-       <a class="btn btn-info" href="statusdelete/{{$data->id}}">Delete</a>
-       <script>
+       {{-- <a class="btn btn-info" href="statusdelete/{{$data->id}}">Delete</a> --}}
+       {{-- <script>
 
                       function sentvalue(value,id){
 
@@ -69,10 +66,13 @@
 
                         }
 
-                    </script>
+                    </script> --}}
     </td>
   </tr>
  @endforeach
 </table>
+<div class="pagination-newm">
+    {{$status->links()}}
+</div>
 <p class="text-center text-primary"><small>Webex.am</small></p>
 @endsection

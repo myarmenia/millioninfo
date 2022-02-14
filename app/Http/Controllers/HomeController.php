@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Branche;
 use App\Models\Status;
 use App\Models\Compni;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -39,8 +40,13 @@ class HomeController extends Controller
          
      }
     
-         $employees=Branche::paginate(10);
+         $employees=\DB::table('Branches')
+         ->join('compnis', 'Branches.id','=','compnis.id')
+         ->select('Branches.*', 'compnis.images')
+         ->paginate(10);
+    
          $status = Status::All();
+         
          
 
         return view('home',compact('employees','status'));

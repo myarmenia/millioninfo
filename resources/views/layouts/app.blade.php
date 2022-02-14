@@ -40,7 +40,9 @@
                            <!--  <li><a class="nav-link" href="{{ route('users.index') }}">Manage Users</a></li>
                             <li><a class="nav-link" href="{{ route('roles.index') }}">Manage Role</a></li>
                             <li><a class="nav-link" href="{{ route('products.index') }}">Manage Product</a></li> -->
-                            <li><a class="nav-link" href="{{ asset('status') }}">Catigory</a></li>
+                            {{-- <li><a class="nav-link" href="{{ asset('status') }}">Catigory</a></li> --}}
+
+                            <li><a class="nav-link" href="{{ asset('categories') }}">Catigory</a></li>
                             <li><a class="nav-link" href="{{ asset('home') }}">Info edit</a></li>
                             <li><a class="nav-link" href="{{ asset('filter') }}">Filter</a></li>
 

@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\catigorysController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +19,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:api')->get('/category/{name}', [CatirgoryController::class, 'category']);
 Route::middleware('auth:api')->get('/company', [CatirgoryController::class, 'company']);
+
+Route::get('/categorys', [catigorysController::class, 'index']);

@@ -11,4 +11,6 @@ class Branche extends Model
      protected $fillable = [
         'company_id','types_of_activities', 'name','address','main','region','city','postal_code','lat','lng','open_days','phones','catigory','pay'
     ];
+
+    
 }

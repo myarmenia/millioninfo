@@ -29,17 +29,20 @@
                       <th scope="col">#</th>
                       <th scope="col">Names</th>
                       <th scope="col">Addresses</th>
+                      <th scope="col">Images</th>
                       <th scope="col">types_of_activities</th>
                       <th scope="col">Catigory</th>
                      
                   </tr>
               </thead>
               <tbody>
-               @foreach ($employees as  $value)
+               @foreach ($employees  as  $value)
                <tr>
                   <th scope="row">{{$value->id}}</th>
+                  
                   <td>{{$value->name}}</td>
                   <td>{{$value->address}}</td>
+                  <td>{{$value->images}}</td>
                   <td><details>
                                 <summary>Մանրամասն</summary>
                                {!! $value->types_of_activities!!}

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Status;
-use App\Models\Filter;
+use App\Models\Categorie;
 
 class StatusController extends Controller
 {
@@ -14,10 +14,12 @@ class StatusController extends Controller
         $this->middleware('auth');
     }
     public function index()
-    {
-        $status = Status::All();
-        $filter = Filter::All();
-        return view('status.index',['status'=>$status,'filter'=>$filter]);
+    {  
+        
+       
+        $status = Categorie::orderBy('id','desc')->paginate(32);
+
+        return view('status.index',['status'=>$status]);
     }
      public function create(Request $request)
     {   

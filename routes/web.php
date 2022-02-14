@@ -9,6 +9,11 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\CatirgoryController;
 use App\Http\Controllers\FilterController;
+use App\Http\Controllers\NewcatigoryController;
+use App\Http\Controllers\catigorysController;
+use App\Http\Controllers\CategoriesController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -47,9 +52,17 @@ Route::get('/filter', [FilterController::class, 'index']);
 Route::post('/updatefiter', [FilterController::class, 'updatefiter']);
 Route::get('/filterdelete/{id}', [FilterController::class, 'delete'])->name('delete');
 
+Route::get('info', [InfoController::class, 'index']);
+
 
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
     Route::resource('products', ProductController::class);
 });
+
+Route::get('show/{id}' , [catigorysController::class , 'show']);
+
+Route::post('edit' , [catigorysController::class , 'edit']);
+
+Route::get('/categories', [CategoriesController::class, 'indexcategories'])->name('categories');
