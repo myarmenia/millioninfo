@@ -4,8 +4,9 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
+        <a class="btn btn-primary" href="">Create</a>
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">{{ __('Categories') }}</div>
 
                 <!-- <div class="card-body">
                     @if (session('status'))
@@ -16,13 +17,7 @@
 
                     {{ __('You are logged in!') }}
                 </div> -->
-                <form method="post" action="/find">
-                     @csrf
-                    <label for="search">search</label>
-                    <input id="search" type="text" name="search" required>
-                   
-                    <input type="submit" name="sent" value="Որոնում">
-                </form>
+               
                 <table class="table">
                   <thead>
                     <tr>
@@ -32,8 +27,8 @@
                       <th scope="col">Images</th>
                       <th scope="col">types_of_activities</th>
                       <th scope="col">Catigory</th>
-                     
-                  </tr>
+                      <th scope="col"><a class="btn btn-primary"href="{{ route('categories.editcategories') }}">Edit</a></th>
+                     </tr>
               </thead>
               <tbody>
          
