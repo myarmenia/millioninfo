@@ -20,7 +20,7 @@
 
     <label for="cars">Choose Categories</label>
     <select name="categories_id" id="cars">
-        @foreach ($data as $info )
+          @foreach ($data as $info )
             <option value="1">{{$info->name}}</option>
         @endforeach
     4</option>
