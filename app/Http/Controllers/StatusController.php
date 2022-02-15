@@ -16,7 +16,9 @@ class StatusController extends Controller
     public function index()
     {  
         $data = Categories::all();
-        return view('status.index',compact('data'));
+         $data2 = SubCategories::all();
+
+         return view('status.index',compact('data','data2'));
     }
      public function create(Request $request)
     {   
