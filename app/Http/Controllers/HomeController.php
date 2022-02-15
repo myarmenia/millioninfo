@@ -30,26 +30,26 @@ class HomeController extends Controller
 
      
 
-    //  $employees=Branche::where('types_of_activities','=', null)->skip(0)->take(10)->get();
+     $employees=Branche::where('types_of_activities','=', null)->skip(0)->take(10)->get();
 
-    //  foreach($employees as $empl){
+     foreach($employees as $empl){
 
-    //      $finde=Compni::where('id',$empl->company_id)->first();
+         $finde=Compni::where('id',$empl->company_id)->first();
 
-    //      $employs=Branche::where('company_id',$finde->id)->update(['types_of_activities'=>$finde->types_of_activities]);
+         $employs=Branche::where('company_id',$finde->id)->update(['types_of_activities'=>$finde->types_of_activities]);
          
-    //  }
+     }
     
-    //      $employees=\DB::table('Branches')
-    //      ->join('compnis', 'Branches.id','=','compnis.id')
-    //      ->select('Branches.*', 'compnis.images')
-    //      ->paginate(10);
+         $employees=\DB::table('Branches')
+         ->join('compnis', 'Branches.id','=','compnis.id')
+         ->select('Branches.*', 'compnis.images')
+         ->paginate(10);
     
-    //      $status = Status::All();
+         $status = Status::All();
          
          
 
-        return view('home');
+        return view('home', compact('employees','status'));
 
 
  }

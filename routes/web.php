@@ -61,10 +61,17 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('products', ProductController::class);
 });
 
-Route::get('show/{id}' , [catigorysController::class , 'show']);
+Route::get('show/{id}' , [catigorysController::class , 'show'])->name('show');
+
+
+Route::get('edit/{id}' , [CatigorysController::class , 'edit']);
 
 Route::post('edit' , [catigorysController::class , 'edit']);
-
+Route::post('edit/{ikd}' , [CatigorysController::class , 'edit']);
 Route::get('/categories', [CategoriesController::class, 'indexcategories'])->name('categories');
+Route::get('/edit', [CategoriesController::class, 'edit'])->name('edit');
+Route::get('/create', [CategoriesController::class, 'createshow'])->name('create');
+Route::get('/create', [CategoriesController::class, 'createshow'])->name('create');
+
 
 Route::get('/index', [StatusController::class, 'indexedit']);
