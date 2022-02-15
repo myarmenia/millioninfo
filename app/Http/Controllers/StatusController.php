@@ -56,12 +56,26 @@ class StatusController extends Controller
        
     }
 
-    public function indexedit(){
+    public function indexedit($id){
+       
+        $categoris=Categories::all();
+        $editinfo = SubCategories::find($id);
+        return view('status.subedit',compact('editinfo','categoris'));
 
-        return view('status.subedit');
+    }
 
-        
+    public function ediit(Request $req){
 
+        $data = Categories::all();
+        $data2 = SubCategories::all();
+
+        $dataaa = SubCategories::find($req->id);
+        $dataaa->id=$req->id;
+        $dataaa->categories_id=$req->categoriesid;
+        $dataaa->name=$req->subname;
+        $dataaa->save();
+        return redirect()->back();
+    
     }
 
     

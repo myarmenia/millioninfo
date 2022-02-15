@@ -67,4 +67,6 @@ Route::post('edit' , [catigorysController::class , 'edit']);
 
 Route::get('/categories', [CategoriesController::class, 'indexcategories'])->name('categories');
 
-Route::get('/index', [StatusController::class, 'indexedit']);
+Route::get('index/{id}', [StatusController::class, 'indexedit']);
+
+Route::post('editnow', [StatusController::class, 'ediit']);
