@@ -9,13 +9,26 @@ use App\Models\SubCategories;
 class CategoriesController extends Controller
 {
     public function indexcategories(){
-       $data = Categories::with('subCategoriesto')->get();
+       $user = Categories::all();
 
-         return view('categories', compact('data'));
+         return view('categories', compact('user->id'));
     }
 
 
-         
+    // public function indexcategories()
+    // {
+    //     // $user = Categories::all();  
+    //     // dd($user);
+    //     // return view('categories',compact('user'));
+    //     echo "hello";
+        
+    // }  
+    public function edit()
+    {
+        $user = Categories::all();
+
+        return view('categories.edit',compact('user'));
+    }
 }
       
    

@@ -64,5 +64,5 @@ Route::group(['middleware' => ['auth']], function() {
 Route::get('show/{id}' , [catigorysController::class , 'show']);
 
 Route::post('edit' , [catigorysController::class , 'edit']);
-
 Route::get('/categories', [CategoriesController::class, 'indexcategories'])->name('categories');
+Route::get('/edit', [CategoriesController::class, 'edit'])->name('edit');
