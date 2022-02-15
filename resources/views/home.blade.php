@@ -36,7 +36,38 @@
                   </tr>
               </thead>
               <tbody>
-         
+               @foreach ($employees  as  $value)
+               <tr>
+                  <th scope="row">{{$value->id}}</th>
+                  
+                  <td>{{$value->name}}</td>
+                  <td>{{$value->address}}</td>
+                  <td>{{$value->images}}</td>
+                  <td><details>
+                                <summary>Մանրամասն</summary>
+                               {!! $value->types_of_activities!!}
+                            </details>
+
+                     </td>
+                  <td><label for="browser">Select Catigory</label>
+                   @if($value->catigory)
+                   @foreach ($status as  $data)
+                     
+                      @if($value->catigory == $data->id)
+                           <input list="browsers" va  name="browser" value="{{$data->name}}" id="browser" onchange="upadte('{{$value->id}}',this.value)">
+                      @endif
+                  @endforeach
+                  @else
+                          <input list="browsers" va  name="browser" value="" id="browser" onchange="upadte('{{$value->id}}',this.value)">
+                      @endif
+                   
+                    <datalist id="browsers">
+                    @foreach ($status as  $data)
+                      <option value="{{$data->name}}">
+                    @endforeach
+                      </datalist></td>
+                  </tr>
+                  @endforeach 
                   <script>
 
                       function upadte(id,value){
@@ -66,7 +97,7 @@
             </table>
             {{-- Pagination --}}
             <div class="d-flex justify-content-center">
-               
+                {!! $employees->links() !!}
             </div>
         </div>
     </div>

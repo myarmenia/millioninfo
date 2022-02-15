@@ -4,9 +4,8 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
-        <a class="btn btn-primary" href="{{ route('create') }}">Create</a>
             <div class="card">
-                <div class="card-header">{{ __('Categories') }}</div>
+                <div class="card-header">{{ __('Dashboard') }}</div>
 
                 <!-- <div class="card-body">
                     @if (session('status'))
@@ -17,7 +16,19 @@
 
                     {{ __('You are logged in!') }}
                 </div> -->
-               
+                <form method="post" action="/find">
+                     @csrf
+                    <label for="search">EN</label>
+                    <input id="EN" type="text" name="EN" required>
+
+                    <label for="search">HY</label>
+                    <input id="HY" type="text" name="HY" required>
+
+                    <label for="search">RU</label>
+                    <input id="RU" type="text" name="RU" required>
+                   
+                    <input type="submit" name="sent" value="Ավելացնել">
+                </form>
                 <table class="table">
                     <thead>
                      <tr> 
@@ -26,29 +37,43 @@
                          <th scope="col">Edit</th>
                      </tr>
                     </thead>
-
-                        <table class="table">
-                        @foreach($categories as $info)
+                    <table class="table">
+                        @foreach($user as $info)
                           <thead>
+                            
                             <th>{{$info->name}}</th>
                             <th scope="col"><a class="btn btn-primary"href="{{ route('show', $info->id) }}">Edit</a></th>
+                            
                           </thead>
                           @endforeach
-                        </table>
-              <tbody>
+                       
+                    </table>
+                </table>
+         
                   <script>
+
                       function upadte(id,value){
+
                         $.ajaxSetup({
-                            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}});
-                                    $.ajax({type:'POST',url:"{{ '/update'}}",data:{id:id, value:value},success: function(data,id){
+
+                            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}});$.ajax({type:'POST',url:"{{ '/update'}}",data:{id:id, value:value},success: function(data,id){
+
                                 if(data == "price"){
+
                                     location.reload();
+
                                 }else{
+
                                     location.reload();
+
                                 }
+
                             }
+
                         });
+
                         }
+
                     </script>
                 </tbody>
             </table>

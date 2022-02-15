@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Categorie;
+use App\Models\Categories;
 use DOMDocument;
 
 class catigorysController extends Controller
@@ -17,15 +17,24 @@ class catigorysController extends Controller
 
 
     public function show($id){
-       $info = Categorie::find($id);
+       $info = Categories::find($id);
        return view('showedit' , compact('info'));
     }
+    public function show1(){
+        
+        $categories = Categories::all();
 
+        return view('categories', compact('categories'));
+     }
     public function edit(Request $req){
-        $data = Categorie::find($req->id);
+        
+        $data = Categories::find($req->id);
+        $data->id=$req->id;
         $data->name=$req->hello;
         $data->save();
-        return view('showedit');
+
+        return  redirect()->back();
     
     }
+
 }

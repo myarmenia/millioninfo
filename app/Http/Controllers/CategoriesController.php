@@ -9,12 +9,11 @@ use App\Models\SubCategories;
 class CategoriesController extends Controller
 {
     public function indexcategories(){
-       $user = Categories::all();
+       $categories = Categories::all();
 
-         return view('categories', compact('user->id'));
+         return view('categories', compact('categories'));
     }
-
-
+   
     // public function indexcategories()
     // {
     //     // $user = Categories::all();  
@@ -25,9 +24,32 @@ class CategoriesController extends Controller
     // }  
     public function edit()
     {
-        $user = Categories::all();
 
-        return view('categories.edit',compact('user'));
+        $Categoriesedit = Categories::all();
+        // $user = Categories::find($id);
+        return view('categories.edit', $Categoriesedit);
+    }
+    
+    public function createshow(){
+
+        $user = Categories::all();
+          return view('categories.create', compact('user'));
+    }
+     public function show($id){
+       $info = Categorie::find($id);
+       return view('showedit' , compact('info'));
+    }
+    public function create(Request $request){
+
+        $this->validate($request, [
+            'en' => 'required',
+            'hy' => 'required',
+            'ru' => 'required',
+        ]);
+        $insert = Filter::create([
+        'name'=>$request['en'],'filter'=>json_encode($request->only('en','hy','ru'))]);
+   
+        return  redirect()->back();
     }
 }
       

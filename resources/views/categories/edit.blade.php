@@ -28,16 +28,19 @@
 <table class="table">
                   <thead>
                     <tr>
-                  
+                   
                     <div class="form-group">
-                      <strong>Name:</strong>
-                      {!! Form::text('name', null, array('placeholder' => $user,'class' => 'form-control')) !!}
+                             
+                       <strong>Name:</strong>
+                        <th>{{$info->name}}</th>
+                      {!! Form::text('name', null, array('placeholder' => $info,'class' => 'form-control')) !!}
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
-                 
-                      
-                    
+               
                      </tr>
+                    
+        
+                     
               </thead>
               <tbody>
          
