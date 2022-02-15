@@ -66,3 +66,5 @@ Route::get('show/{id}' , [catigorysController::class , 'show']);
 Route::post('edit' , [catigorysController::class , 'edit']);
 
 Route::get('/categories', [CategoriesController::class, 'indexcategories'])->name('categories');
+
+Route::get('/index', [StatusController::class, 'indexedit']);

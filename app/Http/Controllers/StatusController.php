@@ -19,8 +19,9 @@ class StatusController extends Controller
     {  
         
         $data = Categories::all();
+        $data2 = SubCategories::all();
 
-        return view('status.index',compact('data'));
+        return view('status.index',compact('data','data2'));
     }
 
 
@@ -45,13 +46,23 @@ class StatusController extends Controller
     }
 
     
-    // public function delete($id)
-    // {   
+    public function delete($id)
+    {   
         
-    //     $delete = Status::where('id',$id)->delete();
+        $delete = SubCategories::where('id',$id)->delete();
 
-    //     return  redirect()->back();
-    // }
+        return  redirect()->back();
+
+       
+    }
+
+    public function indexedit(){
+
+        return view('status.subedit');
+
+        
+
+    }
 
     
 }
