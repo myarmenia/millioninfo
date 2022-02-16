@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Categories;
 use App\Models\SubCategories;
 
+
 class CategoriesController extends Controller
 {
     public function indexcategories(){
@@ -46,13 +47,20 @@ class CategoriesController extends Controller
             'ru' => 'required',
         ]);
 
+
         $catigory= json_encode($request->only('en','en','ru'));
+
       
         $insert = Categories::create([
             'name'=>$catigory,
         ]);
    
         return  redirect()->back();
+    }
+    public function Categoriesapi()
+    {
+       $categoriesapi = Categories::get()->pluck('name');
+       return $categoriesapi;
     }
 }
       

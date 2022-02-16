@@ -27,7 +27,7 @@ class StatusController extends Controller
 
 
 
-     public function create(Request $request)
+    public function create(Request $request)
     {   
         $this->validate($request, [
             'en' => 'required',
@@ -37,7 +37,7 @@ class StatusController extends Controller
 
         $catigory= json_encode($request->only('en','hy','ru'));
       
-       $insert = SubCategories::create([
+        $insert = SubCategories::create([
         'categories_id'=>$request->categories_id,
         'name'=>$catigory,
     ]);

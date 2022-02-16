@@ -14,6 +14,7 @@ use App\Http\Controllers\catigorysController;
 use App\Http\Controllers\CategoriesController;
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
