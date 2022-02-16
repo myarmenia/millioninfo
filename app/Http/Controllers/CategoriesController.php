@@ -25,7 +25,6 @@ class CategoriesController extends Controller
     // }  
     public function edit()
     {
-
         $Categoriesedit = Categories::all();
         // $user = Categories::find($id);
         return view('categories.edit', $Categoriesedit);
@@ -48,7 +47,9 @@ class CategoriesController extends Controller
             'ru' => 'required',
         ]);
 
-        $catigory= json_encode($request->only('en','hy','ru'));
+
+        $catigory= json_encode($request->only('en','en','ru'));
+
       
         $insert = Categories::create([
             'name'=>$catigory,
