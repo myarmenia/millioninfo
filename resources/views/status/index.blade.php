@@ -46,7 +46,7 @@
         <td>{{$info2->categories_id}}</td>
         <td>{{$info2->name}}</td>
         <td>
-            <a href="/index"><button type="button" class="btn btn-primary">Edit</button></a>
+            <a href={{"index/".$info2['id']}}><button type="button" class="btn btn-primary">Edit</button></a>
             <a href={{"statusdelete/".$info2['id']}}><button type="button" class="btn btn-primary">Delete</button></a>
         </td>
         </td>

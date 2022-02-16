@@ -67,11 +67,12 @@ Route::get('show/{id}' , [catigorysController::class , 'show'])->name('show');
 Route::get('edit/{id}' , [CatigorysController::class , 'edit']);
 
 Route::post('edit' , [catigorysController::class , 'edit']);
-Route::post('edit/{ikd}' , [CatigorysController::class , 'edit']);
+Route::post('edit/{id}' , [CatigorysController::class , 'edit']);
 Route::get('/categories', [CategoriesController::class, 'indexcategories'])->name('categories');
 Route::get('/edit', [CategoriesController::class, 'edit'])->name('edit');
 Route::get('/create', [CategoriesController::class, 'createshow'])->name('create');
 Route::get('/create', [CategoriesController::class, 'createshow'])->name('create');
 
 
-Route::get('/index', [StatusController::class, 'indexedit']);
+Route::get('index/{id}', [StatusController::class, 'indexedit']);
+Route::post('editnow', [StatusController::class, 'ediit']);
