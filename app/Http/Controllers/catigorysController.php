@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Categories;
+use App\Models\SubCategories;
 use DOMDocument;
 
 class catigorysController extends Controller
 {
     public function index(){
 
-       $data = Categorie::get('name');
+       $data = Categories::get('name');
        
        return $data;
     }
@@ -20,6 +21,8 @@ class catigorysController extends Controller
        $info = Categories::find($id);
        return view('showedit' , compact('info'));
     }
+
+
     public function show1(){
         
         $categories = Categories::all();
@@ -36,5 +39,14 @@ class catigorysController extends Controller
         return  redirect()->back();
     
     }
+
+    public function showapi($id){
+
+        $apishow = SubCategories::where('categories_id', $id)->get();
+         return $apishow;
+     }
+
+
+     
 
 }

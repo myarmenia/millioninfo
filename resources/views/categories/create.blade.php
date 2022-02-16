@@ -16,16 +16,16 @@
 
                     {{ __('You are logged in!') }}
                 </div> -->
-                <form method="post" action="/find">
+                <form method="post" action="/create">
                      @csrf
                     <label for="search">EN</label>
-                    <input id="EN" type="text" name="EN" required>
+                    <input id="EN" type="text" name="en" required>
 
                     <label for="search">HY</label>
-                    <input id="HY" type="text" name="HY" required>
+                    <input id="HY" type="text" name="hy" required>
 
                     <label for="search">RU</label>
-                    <input id="RU" type="text" name="RU" required>
+                    <input id="RU" type="text" name="ru" required>
                    
                     <input type="submit" name="sent" value="Ավելացնել">
                 </form>

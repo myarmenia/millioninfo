@@ -24,7 +24,6 @@ class CategoriesController extends Controller
     // }  
     public function edit()
     {
-
         $Categoriesedit = Categories::all();
         // $user = Categories::find($id);
         return view('categories.edit', $Categoriesedit);
@@ -39,15 +38,19 @@ class CategoriesController extends Controller
        $info = Categorie::find($id);
        return view('showedit' , compact('info'));
     }
-    public function create(Request $request){
-
+    public function createCategories(Request $request)
+    {   
         $this->validate($request, [
             'en' => 'required',
             'hy' => 'required',
             'ru' => 'required',
         ]);
-        $insert = Filter::create([
-        'name'=>$request['en'],'filter'=>json_encode($request->only('en','hy','ru'))]);
+
+        $catigory= json_encode($request->only('en','en','ru'));
+      
+        $insert = Categories::create([
+            'name'=>$catigory,
+        ]);
    
         return  redirect()->back();
     }

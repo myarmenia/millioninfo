@@ -7,7 +7,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StatusController;
-use App\Http\Controllers\CatirgoryController;
+use App\Http\Controllers\Catirgory_oldController;
 use App\Http\Controllers\FilterController;
 use App\Http\Controllers\NewcatigoryController;
 use App\Http\Controllers\catigorysController;
@@ -38,12 +38,12 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/status', [StatusController::class, 'index'])->name('status');
 Route::get('/statusdelete/{id}', [StatusController::class, 'delete'])->name('delete');
 Route::post('/status', [StatusController::class, 'create'])->name('addstatus');
-Route::post('/update', [CatirgoryController::class, 'update'])->name('update');
-Route::post('/find', [CatirgoryController::class, 'find'])->name('find');
-Route::get('/find/{id}', [CatirgoryController::class, 'findone'])->name('findone');
-Route::get('/category/{name}', [CatirgoryController::class, 'category']);
-Route::get('/company', [CatirgoryController::class, 'company']);
-Route::get('/search/{name}', [CatirgoryController::class, 'search']);
+Route::post('/update', [Catirgory_oldController::class, 'update'])->name('update');
+Route::post('/find', [Catirgory_oldController::class, 'find'])->name('find');
+Route::get('/find/{id}', [Catirgory_oldController::class, 'findone'])->name('findone');
+Route::get('/category/{name}', [Catirgory_oldController::class, 'category']);
+Route::get('/company', [Catirgory_oldController::class, 'company']);
+Route::get('/search/{name}', [Catirgory_oldController::class, 'search']);
 
 Route::get('/filterme', [FilterController::class, 'filter']);
 Route::get('/filterme/{name}', [FilterController::class, 'filtername']);
@@ -70,7 +70,7 @@ Route::post('edit' , [catigorysController::class , 'edit']);
 Route::post('edit/{id}' , [CatigorysController::class , 'edit']);
 Route::get('/categories', [CategoriesController::class, 'indexcategories'])->name('categories');
 Route::get('/edit', [CategoriesController::class, 'edit'])->name('edit');
-Route::get('/create', [CategoriesController::class, 'createshow'])->name('create');
+Route::post('/create', [CategoriesController::class, 'createCategories']);
 Route::get('/create', [CategoriesController::class, 'createshow'])->name('create');
 
 

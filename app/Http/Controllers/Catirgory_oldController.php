@@ -9,7 +9,7 @@ use App\Models\Status;
 use Illuminate\Support\Facades\DB;
 use Validator,Redirect,Response;
 
-class CatirgoryController extends Controller
+class Catirgory_oldController extends Controller
 {
     public function update(Request $request)
     {   $catigory = Status::where('name',$request->value)->first();
