@@ -27,7 +27,7 @@
                   <thead>
                     <tr>
                       <th scope="col">#</th>
-                      <th scope="col">Names</th>
+                      <th scope="col">Nameshellooo</th>
                       <th scope="col">Addresses</th>
                       <th scope="col">Images</th>
                       <th scope="col">types_of_activities</th>
