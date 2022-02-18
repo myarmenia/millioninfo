@@ -19,7 +19,7 @@ class StatusController extends Controller
     {  
         
         $data = Categories::all();
-        $data2 = SubCategories::all();
+        $data2 = SubCategories::paginate(9);
 
         return view('status.index',compact('data','data2'));
     }
@@ -35,7 +35,9 @@ class StatusController extends Controller
             'ru' => 'required',
         ]);
 
-        $catigory= json_encode($request->only('en','hy','ru'));
+        $catigory= json_encode($request->only('en','hy','ru'),JSON_UNESCAPED_UNICODE);
+
+       
       
         $insert = SubCategories::create([
         'categories_id'=>$request->categories_id,
