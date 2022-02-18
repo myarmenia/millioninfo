@@ -2,11 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\catigorysController;
+use App\Http\Controllers\ApiController;
 
-use App\Http\Controllers\StatusController;
-
-use App\Http\Controllers\CategoriesController;
 
 
 
@@ -22,13 +19,9 @@ use App\Http\Controllers\CategoriesController;
 */
 
 
-Route::middleware('auth:api')->get('/category/{name}', [CatirgoryController::class, 'category']);
-Route::middleware('auth:api')->get('/company', [CatirgoryController::class, 'company']);
-
-Route::get('/categorys', [catigorysController::class, 'index']);
-
-
-Route::get('subcategorys/{id}', [catigorysController::class, 'showapi']);
-
-Route::get('Categories', [CategoriesController::class, 'Categoriesapi']);
+Route::group(['middleware' => ['api']], function() {
+    Route::get('subcategorys/{id}', [ApiController::class, 'showapi']);
+    Route::get('Categories', [ApiController::class, 'Categoriesapi']);
+    Route::get('/category/{types_of_activities}', [ApiController::class, 'category']);
+});
 

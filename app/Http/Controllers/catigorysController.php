@@ -40,11 +40,7 @@ class catigorysController extends Controller
     
     }
 
-    public function showapi($id){
-
-        $apishow = SubCategories::where('categories_id', $id)->get();
-         return $apishow;
-     }
+   
 
 
      
