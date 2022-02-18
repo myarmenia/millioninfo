@@ -59,6 +59,8 @@
 </table>
 <div class="pagination-newm">
     {{$data2->links()}}
+
 </div> 
+
 <p class="text-center text-primary"><small>Webex.am</small></p>
 @endsection

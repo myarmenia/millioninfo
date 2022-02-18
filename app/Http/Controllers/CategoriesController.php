@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Categories;
 use App\Models\SubCategories;
+use App\Models\Branche;
+use App\Models\branches_temps;
+
 
 
 class CategoriesController extends Controller
@@ -57,11 +60,7 @@ class CategoriesController extends Controller
    
         return  redirect()->back();
     }
-    public function Categoriesapi()
-    {
-       $categoriesapi = Categories::get()->pluck('name');
-       return $categoriesapi;
-    }
+   
 }
       
    

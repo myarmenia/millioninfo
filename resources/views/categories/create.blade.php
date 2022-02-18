@@ -50,7 +50,7 @@
                     </table>
                 </table>
          
-                  <script>
+                  {{-- <script>
 
                       function upadte(id,value){
 
@@ -74,7 +74,7 @@
 
                         }
 
-                    </script>
+                    </script> --}}
                 </tbody>
             </table>
             {{-- Pagination --}}
