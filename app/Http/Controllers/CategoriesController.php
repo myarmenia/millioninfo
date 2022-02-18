@@ -48,7 +48,7 @@ class CategoriesController extends Controller
         ]);
 
 
-        $catigory= json_encode($request->only('en','en','ru'));
+        $catigory= json_encode($request->only('en','hy','ru'),JSON_UNESCAPED_UNICODE);
 
       
         $insert = Categories::create([

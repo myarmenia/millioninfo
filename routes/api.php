@@ -22,7 +22,7 @@ use App\Http\Controllers\CategoriesController;
 */
 
 
-Route::middleware('auth:api')->get('/category/{name}', [CatirgoryController::class, 'category']);
+Route::middleware('auth:api')->get('/category/{name}', [z::class, 'category']);
 Route::middleware('auth:api')->get('/company', [CatirgoryController::class, 'company']);
 
 Route::get('/categorys', [catigorysController::class, 'index']);
