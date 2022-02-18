@@ -12,7 +12,7 @@ use DB;
 class RoleController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the resource.z
      *
      * @return \Illuminate\Http\Response
      */

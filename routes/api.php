@@ -25,3 +25,4 @@ Route::group(['middleware' => ['api']], function() {
     Route::get('/category/{types_of_activities}', [ApiController::class, 'category']);
 });
 
+

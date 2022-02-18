@@ -37,7 +37,6 @@ class StatusController extends Controller
 
         $catigory= json_encode($request->only('en','hy','ru'),JSON_UNESCAPED_UNICODE);
 
-       
       
         $insert = SubCategories::create([
         'categories_id'=>$request->categories_id,

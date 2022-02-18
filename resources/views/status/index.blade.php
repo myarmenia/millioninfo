@@ -15,7 +15,7 @@
     <label for="en">EN</label>
     <input id="en" type="text" name="en" required>
     <label for="hy">HY</label>
-    <input  id="hy" type="text" name="hy" required>
+    <input id="hy" type="text" name="hy" required>
     <label for="ru">RU</label>
     <input id="ru" type="text" name="ru" required>
 
@@ -23,6 +23,7 @@
     <select name="categories_id" id="cars">
         @foreach ($data as $info )
             <option value="{{$info->id}}">{{$info->name}}</option>
+            
         @endforeach
     </select>
 
@@ -58,6 +59,8 @@
 </table>
 <div class="pagination-newm">
     {{$data2->links()}}
-</div>
+
+</div> 
+
 <p class="text-center text-primary"><small>Webex.am</small></p>
 @endsection
