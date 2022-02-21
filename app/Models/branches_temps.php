@@ -23,11 +23,18 @@ class branches_temps extends Model
         'lng',
         'open_days',
         'phones',
-        'catigory',
+        'categories_id',
         'pay',
         'updated_at',
         'types_of_activities',
-        'temp_field'
+        'temp_field',
+        'logo',
+        'website_url'
     ];
+   
+    public function br_temps_Categoriesto(){
+
+        return $this->belongsTo(Compni::class,'company_id','id');
+    }
 
 }

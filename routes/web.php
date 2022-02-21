@@ -46,6 +46,7 @@ Route::get('/category/{name}', [Catirgory_oldController::class, 'category']);
 Route::get('/company', [Catirgory_oldController::class, 'company']);
 Route::get('/search/{name}', [Catirgory_oldController::class, 'search']);
 
+
 Route::get('/filterme', [FilterController::class, 'filter']);
 Route::get('/filterme/{name}', [FilterController::class, 'filtername']);
 Route::post('/fiteradd', [FilterController::class, 'create']);
@@ -77,3 +78,7 @@ Route::get('/create', [CategoriesController::class, 'createshow'])->name('create
 
 Route::get('index/{id}', [StatusController::class, 'indexedit']);
 Route::post('editnow', [StatusController::class, 'ediit']);
+
+Route::get('/showcompanis', [StatusController::class, 'show_companis']);
+
+Route::get('/createcompany', [StatusController::class, 'create_new_companis'])->name('createcompany');

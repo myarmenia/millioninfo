@@ -7,6 +7,8 @@ use App\Models\Status;
 use App\Models\Categorie;
 use App\Models\Categories;
 use App\Models\SubCategories;
+use App\Models\compni;
+
 
 class StatusController extends Controller
 {
@@ -77,6 +79,30 @@ class StatusController extends Controller
         $dataaa->save();
         return redirect()->back();
     
+    }
+    public function show_companis()
+    {   
+        $compani = compni::paginate(10);
+        
+        return view('showcompanis',compact('compani'));
+    }
+    public function create_new_companis(Request $request)
+    {   
+        
+        $this->validate($request, [
+            'name' => 'required',
+            'website_url' => 'required',
+            'Director' => 'required',
+            'facebook_url' => 'required',
+            'instagram_url' => 'required',
+        ]);
+
+        $companis= json_encode($request,JSON_UNESCAPED_UNICODE);
+
+        $insert = compni::create([
+            'name'=>$companis,
+        ]);
+        return view('createcompany');
     }
 
      
