@@ -23,11 +23,17 @@ class branches_temps extends Model
         'lng',
         'open_days',
         'phones',
-        'catigory',
+        'categories_id',
         'pay',
         'updated_at',
         'types_of_activities',
         'temp_field'
     ];
+
+    public function br_temps_categoriesto(){
+        return $this->belongsTo(Categories::class ,'id');
+    }
+
+
 
 }
