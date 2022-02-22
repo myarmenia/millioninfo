@@ -17,7 +17,7 @@ class SubCategories extends Model
     ];
 
     public function categoriesto(){
-
+        
         return $this->belongsTo(Categories::class);
     }
 }
