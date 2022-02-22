@@ -19,6 +19,10 @@ class Categories extends Model
 
         return $this->hasMany(SubCategories::class,'categories_id');
     }
+    public function br_temps_Categories(){
+
+        return $this->hasMany(branches_temps::class,'categories_id');
+    }
 
         
 }
