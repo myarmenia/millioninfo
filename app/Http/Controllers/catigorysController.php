@@ -11,7 +11,7 @@ class catigorysController extends Controller
 {
     public function index(){
 
-       $data = Categories::get('name');
+       $data = Categories::get('name'); 
        
        return $data;
     }

@@ -32,9 +32,8 @@ class branches_temps extends Model
         'website_url'
     ];
    
-    public function br_temps_Categoriesto(){
-
-        return $this->belongsTo(Compni::class,'company_id','id');
+    public function br_temps_categoriesto(){
+        return $this->belongsTo(Categories::class ,'id');
     }
 
 }
