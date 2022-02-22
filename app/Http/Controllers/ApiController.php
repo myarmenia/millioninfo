@@ -26,17 +26,38 @@ class ApiController extends Controller
     }
 
     public function category($types_of_activities){
-        $categorie = branches_temps::paginate(50);
+        $categorie = branches_temps::where('name', 'like', '%'.$types_of_activities.'%')->get();
+        
         $stack = array();
         foreach($categorie as $empl){    
-            $id = json_decode($empl->id, true);  
+            // $id = json_decode($empl->id, true);  
             $name = json_decode($empl->name, true);  
-            $lat =json_decode($empl->lat , true);
-            $image = json_decode($empl->image ,true);
-            array_push($stack, array("id"=>$id,"name"=>$name,"lat"=>$lat,"image"=>$image));
+            array_push($stack, array("name"=>$name));
         }
 
       return response()->json(['company' => $stack]);
+    }
+
+
+
+    public function show_company_name($name){
+
+        $categorie = branches_temps::where('name', 'like', '%'.$name.'%')->get();
+    
+        $stack = array();
+        
+        foreach($categorie as $empl){    
+            $id = json_decode($empl->id, true);  
+            $name = json_decode($empl->name, true);
+            $let = json_decode($empl->lat, true);
+            $lng = json_decode($empl->lat, true);
+            $open_days =json_decode($empl->open_days , true);
+
+            array_push($stack, array("id"=>$id,"name"=>$name ,"let"=>$let ,"lng"=>$lng ,"open_days"=>$open_days));
+        }
+
+      return response()->json(['company' => $stack]);
+       
     }
 
     public function show_single_company($id){
