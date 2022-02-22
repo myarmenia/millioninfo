@@ -27,13 +27,13 @@ class branches_temps extends Model
         'pay',
         'updated_at',
         'types_of_activities',
-        'temp_field'
+        'temp_field',
+        'logo',
+        'website_url'
     ];
-
+   
     public function br_temps_categoriesto(){
         return $this->belongsTo(Categories::class ,'id');
     }
-
-
 
 }

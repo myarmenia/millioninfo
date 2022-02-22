@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Branche;
 use App\Models\Status;
 use App\Models\Compni;
+use App\Models\Categories;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
@@ -52,5 +53,7 @@ class HomeController extends Controller
         return view('home', compact('employees','status'));
 
 
- }
+    }
+  
+  
 }

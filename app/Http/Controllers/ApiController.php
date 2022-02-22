@@ -8,6 +8,7 @@ use App\Models\Categories;
 use App\Models\SubCategories;
 use App\Models\Branche;
 use App\Models\branches_temps;
+use App\Models\Compni;
 
 class ApiController extends Controller
 {
@@ -57,5 +58,15 @@ class ApiController extends Controller
 
       return response()->json(['company' => $stack]);
        
+    }
+
+    public function show_single_company($id){
+        $categorie = branches_temps::with('br_temps_Categoriesto')->find($id);
+
+        if($categorie){
+            $categorie = $categorie->only('id','name','address','apen_days','lat','lng','logo','phones','city','br_temps_Categoriesto');
+        }
+
+         return response()->json([$categorie]);
     }
 }
