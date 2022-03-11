@@ -19,15 +19,12 @@ class Categories extends Model
 
         return $this->hasMany(SubCategories::class,'categories_id');
     }
-    public function br_temps_Categories(){
+    public function website_links(){
 
         return $this->hasMany(branches_temps::class,'categories_id');
     }
 
-    public function br_temps_categories(){
-
-        return $this->hasMany(branches_temps::class,'company_id');
-    }
+    
 
 
         

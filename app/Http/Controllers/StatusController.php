@@ -86,7 +86,13 @@ class StatusController extends Controller
         
         return view('showcompanis',compact('compani'));
     }
-    public function create_new_companis(Request $request)
+    public function create_new_companis()
+    {   
+        $compani = compni::paginate(10);
+        
+        return view('createcompany');
+    }
+    public function create_new_companis_111(Request $request)
     {   
         
         $this->validate($request, [
@@ -102,7 +108,7 @@ class StatusController extends Controller
         $insert = compni::create([
             'name'=>$companis,
         ]);
-        return view('createcompany');
+        return redirect()->back();
     }
 
      
