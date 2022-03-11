@@ -43,17 +43,19 @@ class ApiController extends Controller
     public function show_company_name($name){
 
         $categorie = branches_temps::where('name', 'like', '%'.$name.'%')->get();
-    
+
+        $categories_id = SubCategories::where('name', 'like', '%'.$name.'%')->first()->categories_id;
+        $categories_name = Categories::where('id', $categories_id)->first()->name;
         $stack = array();
         
         foreach($categorie as $empl){    
-            $id = json_decode($empl->id, true);  
+            $id = json_decode($empl->id, true);
             $name = json_decode($empl->name, true);
             $let = json_decode($empl->lat, true);
             $lng = json_decode($empl->lat, true);
             $open_days =json_decode($empl->open_days , true);
 
-            array_push($stack, array("id"=>$id,"name"=>$name ,"let"=>$let ,"lng"=>$lng ,"open_days"=>$open_days));
+            array_push($stack, array("id"=>$id, "categories_name"=> $categories_name, "name"=>$name ,"let"=>$let ,"lng"=>$lng ,"open_days"=>$open_days));
         }
 
       return response()->json(['company' => $stack]);
@@ -61,10 +63,10 @@ class ApiController extends Controller
     }
 
     public function show_single_company($id){
-        $categorie = branches_temps::with('br_temps_Categoriesto')->find($id);
+        $categorie = branches_temps::with('website_links')->find($id);
 
         if($categorie){
-            $categorie = $categorie->only('id','name','address','apen_days','lat','lng','logo','phones','city','br_temps_Categoriesto');
+            $categorie = $categorie->only('id','name','address','apen_days','lat','lng','logo','phones','city','website_links');
         }
 
          return response()->json([$categorie]);

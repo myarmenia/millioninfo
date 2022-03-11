@@ -82,3 +82,5 @@ Route::post('editnow', [StatusController::class, 'ediit']);
 Route::get('/showcompanis', [StatusController::class, 'show_companis']);
 
 Route::get('/createcompany', [StatusController::class, 'create_new_companis'])->name('createcompany');
+
+Route::post('/createcompany', [StatusController::class, 'create_new_companis_111']);

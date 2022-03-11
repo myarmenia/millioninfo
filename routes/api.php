@@ -32,7 +32,7 @@ Route::group(['middleware' => ['api']], function() {
     Route::get('Categories', [ApiController::class, 'Categoriesapi']);
 
     Route::get('/category_search/{types_of_activities}', [ApiController::class, 'category']);
-    Route::get('/show_company_name/{name}', [ApiController::class, 'show_company_name']);
+    Route::get('/show_company_name/{id}', [ApiController::class, 'show_company_name']);
 
 
     Route::get('/category/{types_of_activities}', [ApiController::class, 'category']);

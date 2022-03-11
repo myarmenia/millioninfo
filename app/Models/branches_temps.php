@@ -32,7 +32,7 @@ class branches_temps extends Model
         'website_url'
     ];
    
-    public function br_temps_categoriesto(){
+    public function website_links(){
         return $this->belongsTo(Categories::class ,'id');
     }
 
